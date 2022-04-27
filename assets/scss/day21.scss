@@ -1,0 +1,114 @@
+// $primary-color:#0a6cf1;
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main {
+    --primary-color: #0a6cf1;
+    --background-color: #eee;
+    --box-color: #dadada;
+    --text-color: #333;
+    background-color: var(--background-color);
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+        .logo {
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .toggle {
+            &-label {
+                width: 80px;
+                height: 30px;
+                border-radius: 25px;
+                background-color: #aaa;
+                position: relative;
+                display: flex;
+                align-items: center;
+                &:hover {
+                    cursor: pointer;
+                }
+                &::before {
+                    content: '';
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    transition: all .3s;
+                }
+            }
+        }
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        .title {
+            font-size: 5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 120px;
+            text-align: center;
+        }
+        .content {
+            width: 1200px;
+            background-color: var(--box-color);
+            border-radius: 10px;
+            margin: 30px auto 0;
+            padding: 40px;
+            &-para {
+                font-size: 1.8rem;
+                color: var(--text-color);
+                line-height: 2.2rem;
+            }
+            &-btn {
+                margin-top: 40px;
+                display: flex;
+                justify-content: space-around;
+                &__link {
+                    background-color: var(--primary-color);
+                    padding: 15px 20px;
+                    border: none;
+                    border-radius: 10px;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 1.8rem;
+                    letter-spacing: .5px;
+                    ;
+                }
+            }
+        }
+    }
+}
+
+.main.dark {
+    --primary-color: #4daf54 !important;
+    --background-color: #2d2c2d;
+    --box-color: #3b3a3b;
+    --text-color: #fff;
+    background-color: var(--background-color);
+    .toggle {
+        &-label {
+            background-color: var(--primary-color);
+            &::before {
+                margin-left: 80px;
+                transform: translateX(-100%);
+            }
+        }
+    }
+}

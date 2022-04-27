@@ -1,0 +1,101 @@
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    .weather {
+        width: 350px;
+        height: 100%;
+        margin: auto;
+        padding: 16px 22px;
+        text-align: center;
+        background: no-repeat center/cover;
+        transition: 0.4s;
+        .search {
+            width: 100%;
+            height: 42px;
+            border-radius: 0 15px 0 15px;
+            border: none;
+            padding: 0 24px;
+            font-size: 1.6rem;
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0px 4px 12px -4px #000000;
+            outline: none;
+            transition: .4s;
+            &:focus {
+                border-radius: 15px 0 15px 0;
+                background-color: #fff;
+            }
+        }
+        .content {
+            // width: 100%;
+            color: #fff;
+            .name {
+                font-size: 3.5rem;
+                font-weight: 600;
+                text-shadow: 2px 2px rgb(0 0 0 / 50%);
+                margin-top: 45px;
+            }
+            .time {
+                margin-top: 12px;
+                font-size: 1.5rem;
+            }
+            .temperature {
+                font-size: 6.5rem;
+                font-weight: 800;
+                text-shadow: 4px 4px rgb(0 0 0 / 60%);
+                padding: 32px 20px;
+                border-radius: 15px;
+                display: inline-block;
+                background-color: rgba(255, 255, 255, 0.4);
+                margin: 26px 0 30px;
+                box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.5);
+                sup {
+                    vertical-align: super;
+                    font-size: smaller;
+                }
+            }
+            .short-desc {
+                font-size: 4rem;
+                font-weight: 600;
+                text-shadow: 3px 3px rgb(0 0 0 / 40%);
+                margin-bottom: 40px;
+            }
+            .more-desc {
+                display: flex;
+                justify-content: space-between;
+                font-size: 1.8rem;
+                .desc-item {
+                    &__icon {
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main#cold {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, 1)), url('https://www.nodemy.vn/projects/html-css-js/weather-app/cold.png') no-repeat center/cover;
+    transition: 0.4s;
+    .weather {
+        background-image: url('	https://www.nodemy.vn/projects/html-css-js/weather-app/cold.png');
+    }
+}
+
+.main#hot {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .7), rgba(0, 0, 0, 1)), url('https://www.nodemy.vn/projects/html-css-js/weather-app/hot.png') no-repeat center/cover;
+    transition: 0.4s;
+    .weather {
+        background-image: url('https://www.nodemy.vn/projects/html-css-js/weather-app/hot.png');
+    }
+}

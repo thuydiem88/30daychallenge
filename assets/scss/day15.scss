@@ -1,0 +1,107 @@
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: #dadada;
+    .container {
+        margin: 60px auto 0;
+        width: 400px;
+        height: 100%;
+        max-height: 530px;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.54);
+        &__heading {
+            background-color: #fff;
+            height: 130px;
+            text-align: center;
+            padding: 14px;
+        }
+        &__title {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        &__search {
+            width: 100%;
+            height: 36px;
+            border-radius: 10px;
+            border: 1px solid #000;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            &-icon {
+                font-size: 1.8rem;
+                color: #555555;
+                padding: 10px;
+            }
+            &-input {
+                flex: 1;
+                height: 100%;
+                border: none;
+                outline: none;
+                font-size: 1.6rem;
+                ;
+            }
+        }
+        &__product {
+            width: 100%;
+            overflow-y: auto;
+            &-loading {
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                font-size: 1.6rem;
+                font-weight: 600;
+                text-align: center;
+                padding: 0 0 10px;
+            }
+            &-item {
+                width: 100%;
+                height: 100px;
+                padding: 10px 20px;
+                background-color: #fff;
+                display: flex;
+                align-items: center;
+                &:hover {
+                    background-color: #e2e2e2;
+                    cursor: pointer;
+                }
+                &-img {
+                    width: 50px;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                }
+                &-info {
+                    flex: 1;
+                    text-align: center;
+                }
+                &-name {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: #333;
+                    margin-bottom: 10px;
+                }
+                &-price {
+                    font-size: 1.5rem;
+                }
+            }
+            &-item.hide {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@keyframes leftToRight {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes rightToLeft {
+  from {
+    transform: translateX(150%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes zoomOn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: unset;
+  }
+}
+.left-to-right.start {
+  transition: all 0.7s;
+  animation: leftToRight ease-in-out 0.7s;
+}
+
+.right-to-left.start {
+  transition: all 0.7s;
+  animation: rightToLeft ease-in-out 0.7s;
+}
+
+.zoom.start {
+  transition: all 0.7s;
+  animation: zoomOn ease-in-out 0.7s;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+.main .home {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right, #4daf54, #3d8880);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 80px;
+}
+.main .home-title {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.main .home-desc {
+  font-size: 1.6rem;
+  font-weight: 400;
+  max-width: 700px;
+  line-height: 2.2rem;
+}
+.main .about {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #fff;
+  display: flex;
+}
+.main .about-list {
+  margin: auto;
+  display: flex;
+}
+.main .about-item {
+  width: 500px;
+  height: 160px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 8px;
+  line-height: 2.2rem;
+  padding: 20px;
+}
+.main .about-item__title {
+  font-size: 2.4rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.main .about-item__desc {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+.main .about-item:first-child {
+  margin-right: 40px;
+}
+.main .team {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  background-image: linear-gradient(to bottom, #017c2c 50%, #fff 50%);
+}
+.main .team-person {
+  display: flex;
+  margin: auto;
+}
+.main .team-person__item {
+  background-color: #fff;
+  color: #000;
+  width: 200px;
+  height: 216px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.65);
+}
+.main .team-person__item:not(:first-child) {
+  margin-left: 40px;
+}
+.main .team-person__item-name {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #017c2c;
+  margin-bottom: 26px;
+}
+.main .team-person__item-desc {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+}
+
+/*# sourceMappingURL=day16.css.map */

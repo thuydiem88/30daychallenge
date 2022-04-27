@@ -1,0 +1,44 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(135deg, #413579, #632a4c);
+  display: flex;
+  flex-direction: column;
+}
+.main .wrapper {
+  margin: auto;
+  display: flex;
+  width: 1060px;
+  height: 260px;
+  border: 2px solid #fff;
+  overflow: hidden;
+  justify-items: center;
+  align-items: center;
+  padding-left: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.main .wrapper .item {
+  min-width: 200px;
+  height: 200px;
+  line-height: 200px;
+  color: #fff;
+  background-color: #7043a5;
+  font-size: 7rem;
+  margin-left: 24px;
+  text-align: center;
+}
+.main .wrapper .item:last-child {
+  margin-right: 30px;
+}
+
+/*# sourceMappingURL=day30.css.map */

@@ -1,0 +1,105 @@
+$bg-color:#32af63;
+$primary-color:#f2726a;
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    background-color: $bg-color;
+    padding-left: 120px;
+    padding-right: 120px;
+    justify-content: space-between;
+    align-items: center;
+    .card {
+        width: 300px;
+        height: 400px;
+        background: #242628;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        &__avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid $primary-color;
+            align-self: center;
+            margin: 25px auto 0;
+            overflow: hidden;
+            transition: .3s;
+            &-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            &:hover {
+                cursor: pointer;
+                width: 100%;
+                height: 100%;
+                border: unset;
+                border-radius: unset;
+                margin-top: 0;
+                z-index: 3;
+            }
+        }
+        &__name {
+            font-size: 2.4rem;
+            color: #fff;
+            font-weight: 700;
+            margin-top: 20px;
+            text-align: center;
+        }
+        &__job {
+            font-size: 1.6rem;
+            color: #f2726a;
+            filter: brightness(.9);
+            margin-top: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        &__social {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 45px;
+            padding: 0 50px;
+            &-item {
+                &-link {
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 2rem;
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+        &__btn {
+            width: 122px;
+            height: 42px;
+            border-radius: 5px;
+            margin: 0 auto;
+            border: 1px solid $primary-color;
+            background-color: transparent;
+            color: #fff;
+            font-size: 1.4rem;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            &:hover {
+                background-color: $primary-color;
+                cursor: pointer;
+            }
+        }
+    }
+}

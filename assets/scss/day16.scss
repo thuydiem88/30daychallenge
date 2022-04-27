@@ -1,0 +1,147 @@
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+@keyframes leftToRight {
+    from {
+        transform: translateX(-150%);
+    }
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes rightToLeft {
+    from {
+        transform: translateX(150%);
+    }
+    to {
+        transform: translateX(0)
+    }
+}
+
+@keyframes zoomOn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: unset;
+    }
+}
+
+.left-to-right.start {
+    transition: all .7s;
+    animation: leftToRight ease-in-out .7s;
+}
+
+.right-to-left.start {
+    transition: all .7s;
+    animation: rightToLeft ease-in-out .7s;
+}
+
+.zoom.start {
+    transition: all .7s;
+    animation: zoomOn ease-in-out .7s;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    .home {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(to right, #4daf54, #3d8880);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 80px;
+        &-title {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            // transform: translateX(0);
+        }
+        &-desc {
+            font-size: 1.6rem;
+            font-weight: 400;
+            max-width: 700px;
+            line-height: 2.2rem;
+            // transform: translateX(0);
+        }
+    }
+    .about {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        background-color: #fff;
+        display: flex;
+        &-list {
+            margin: auto;
+            display: flex;
+        }
+        &-item {
+            width: 500px;
+            height: 160px;
+            color: #fff;
+            background-color: #000;
+            border-radius: 8px;
+            line-height: 2.2rem;
+            padding: 20px;
+            &__title {
+                font-size: 2.4rem;
+                font-weight: 500;
+                margin-bottom: 8px;
+            }
+            &__desc {
+                font-size: 1.4rem;
+                font-weight: 400;
+            }
+            &:first-child {
+                margin-right: 40px;
+                // transform: translateX(0);
+            }
+            &:last-child {
+                // transform: translateX(0);
+            }
+        }
+    }
+    .team {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        background-image: linear-gradient(to bottom, #017c2c 50%, #fff 50%);
+        &-person {
+            display: flex;
+            margin: auto;
+            &__item {
+                background-color: #fff;
+                color: #000;
+                width: 200px;
+                height: 216px;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.65);
+                &:not(:first-child) {
+                    margin-left: 40px;
+                }
+                &-name {
+                    font-size: 2.2rem;
+                    font-weight: 500;
+                    color: #017c2c;
+                    margin-bottom: 26px;
+                }
+                &-desc {
+                    font-size: 1.4rem;
+                    line-height: 1.8rem;
+                }
+            }
+        }
+    }
+}

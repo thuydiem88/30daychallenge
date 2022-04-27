@@ -1,0 +1,45 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to left, #fcb2a4, #e74e89);
+  display: flex;
+}
+.main .container {
+  margin: auto;
+}
+.main .container .title {
+  font-size: 3rem;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+.main .container .wrapper {
+  margin-top: 70px;
+}
+.main .container .wrapper .key {
+  width: 100px;
+  height: 70px;
+  background-color: #e43075;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.main .container .wrapper .key:not(:first-child) {
+  margin-left: 20px;
+}
+.main .container .wrapper .key .text {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=day29.css.map */

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 30</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day30.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <!-- <ul class="wrapper">
+            <li class="item">01</li>
+            <li class="item">02</li>
+            <li class="item">03</li>
+            <li class="item">04</li>
+            <li class="item">05</li>
+            <li class="item">06</li>
+            <li class="item">07</li>
+            <li class="item">08</li>
+            <li class="item">09</li>
+            <li class="item">10</li>
+            <li class="item">11</li>
+            <li class="item">12</li>
+            <li class="item">13</li>
+            <li class="item">14</li>
+            <li class="item">15</li>
+            <li class="item">16</li>
+            <li class="item">17</li>
+            <li class="item">18</li>
+            <li class="item">19</li>
+            <li class="item">20</li>
+            <li class="item">21</li>
+            <li class="item">22</li>
+            <li class="item">23</li>
+            <li class="item">24</li>
+            <li class="item">25</li>
+            <li class="item">26</li>
+            <li class="item">27</li>
+        </ul> -->
+
+        <div id="slider-range"></div>
+        <p>
+            <label for="amount">Price:</label>
+            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+        </p>
+    </div>
+    <!-- <script>
+        const wrapper = document.querySelector('.wrapper');
+        let isMousedown = false;
+        let startX, scrollLeft;
+
+        wrapper.addEventListener('mousedown', (e) => {
+            isMousedown = true;
+            startX = e.pageX - wrapper.offsetLeft;
+            scrollLeft = wrapper.scrollLeft;
+        })
+
+        wrapper.addEventListener('mouseleave', () => {
+            isMousedown = false;
+        })
+
+        wrapper.addEventListener('mouseup', () => {
+            isMousedown = false;
+        })
+
+        wrapper.addEventListener('mousemove', (e) => {
+            if (!isMousedown) return
+
+            const x = e.pageX - wrapper.offsetLeft;
+
+            const walk = (x - startX) * 3;
+            //3 là tốc độ của scroll
+            wrapper.scrollLeft = scrollLeft - walk;
+        })
+    </script> -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js
+"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js
+"></script>
+    <script>
+        $(function() {
+            $("#slider-range").slider({
+                range: true,
+                min: 30,
+                max: 210,
+                values: [30, 210],
+                slide: function(event, ui) {
+                    $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                }
+            });
+            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+                " - $" + $("#slider-range").slider("values", 1));
+        });
+    </script>
+</body>
+
+</html>

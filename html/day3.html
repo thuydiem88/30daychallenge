@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/day3.css">
+</head>
+
+<body>
+    <div class="main">
+        <button class="open-btn">Open Modal</button>
+        <!-- modal -->
+        <div class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-body">
+                <div class="form">
+
+                    <div class="form__header">
+                        <p class="form__header-text">Welcome to Nodemy</p>
+                        <div class="form__header-close">
+                            <i class='form__header-close-icon bx bx-x'></i>
+                        </div>
+                    </div>
+                    <div class="form__body">
+                        <h1 class="form__body-heading">Modal</h1>
+                        <p class="form__body-desc">Đây là phần body của modal</p>
+                        <button class="form__body-close">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const modal = document.querySelector(".modal");
+        const modalBody = document.querySelector(".modal-body")
+        const openBtn = document.querySelector(".open-btn");
+        const closeIcon = document.querySelector(".form__header-close");
+        const closeBtn = document.querySelector(".form__body-close");
+
+        function openModal() {
+            modal.classList.add("open");
+            console.log(modal)
+        }
+
+        function closeModal() {
+            modal.classList.remove("open");
+        }
+
+        openBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        closeIcon.addEventListener("click", closeModal);
+        modal.addEventListener("click", closeModal);
+        modalBody.addEventListener("click", function(e) {
+            e.stopPropagation();
+        })
+    </script>
+</body>
+
+</html>

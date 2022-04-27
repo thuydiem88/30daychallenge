@@ -1,0 +1,169 @@
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: linear-gradient(to right, #4daf54, #3d8880);
+    .card {
+        width: 320px;
+        height: 400px;
+        background: #272d40;
+        border-radius: 15px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 16px 20px;
+        &__header {
+            display: flex;
+            justify-content: space-between;
+            &-icon {
+                color: #ffffff;
+                font-size: 2.5rem;
+            }
+        }
+        &__pic {
+            width: 90%;
+            margin-bottom: 10px;
+            transition: .5s;
+            &-img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        &__title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #4daf54;
+            margin-bottom: 10px;
+            transition: all 0.5s;
+            text-align: center;
+        }
+        &__price {
+            color: #ffffff;
+            font-size: 2.6rem;
+            font-weight: 600;
+            transition: all 0.5s;
+            text-align: center;
+        }
+        &__size {
+            display: flex;
+            align-items: center;
+            margin-top: 130px;
+            visibility: hidden;
+            transition: .5s;
+            transition-delay: .2s;
+            opacity: 0;
+            &-title {
+                font-size: 1.8rem;
+                color: #ffffff;
+                margin-right: 10px;
+            }
+            span {
+                color: #272d40;
+                background: #dadada;
+                font-size: 1.4rem;
+                margin: 0 5px;
+                padding: 4px 8px;
+                border-radius: 4px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        &__color {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            visibility: hidden;
+            transition: .5s;
+            transition-delay: .2s;
+            opacity: 0;
+            &-title {
+                font-size: 1.8rem;
+                color: #ffffff;
+                margin-right: 10px;
+            }
+            &-green {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: green;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &-red {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: red;
+                margin-left: 10px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &-black {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: black;
+                margin-left: 10px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        &__action {
+            display: flex;
+            visibility: hidden;
+            transition: .5s;
+            transition-delay: .2s;
+            opacity: 0;
+            &-btn {
+                font-size: 1.3rem;
+                color: #ffffff;
+                background-color: #4daf54;
+                border-radius: 5px;
+                padding: 10px 16px;
+                border: none;
+                font-weight: 600;
+                transition: 0.2s;
+                &:hover {
+                    cursor: pointer;
+                    transform: scale(0.9);
+                }
+            }
+            &-btn:first-child {
+                margin-right: 10px;
+            }
+        }
+        &:hover .card__pic {
+            transform: translateY(-90px) rotate(-20deg);
+        }
+        &:hover .card__title {
+            transform: translate(-42px, -72px);
+        }
+        &:hover .card__price {
+            transform: translate(-116px, -72px);
+        }
+        &:hover .card__size {
+            margin-top: -20px;
+            visibility: visible;
+            opacity: 1;
+        }
+        &:hover .card__action,
+        &:hover .card__color {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}

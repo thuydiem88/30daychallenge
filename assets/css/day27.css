@@ -1,0 +1,132 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@keyframes growth {
+  from {
+    opacity: 0;
+    transform: translateY(150%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: #dadada;
+}
+.main .list {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+.main .list .item {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #000;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7);
+}
+.main .list .item:not(:first-child) {
+  margin-left: 40px;
+}
+.main .list .item-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.6rem;
+}
+.main .list .item-tooltip {
+  padding: 10px 18px;
+  height: 50px;
+  border-radius: 30px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0px 7px 7px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+  opacity: 0;
+}
+.main .list .item-tooltip__text {
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+}
+.main .list .item-tooltip:before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translate(-50%, -100%) rotate(45deg);
+}
+.main .list .item:hover {
+  cursor: pointer;
+  color: #fff;
+}
+.main .list .item:hover .item-tooltip {
+  opacity: 1;
+  top: calc(-100% - 10px);
+}
+.main .list .item-facebook:hover {
+  background-color: #3b5999;
+}
+.main .list .item-facebook:hover .item-tooltip {
+  background-color: #3b5999;
+}
+.main .list .item-facebook:hover .item-tooltip::before {
+  background-color: #3b5999;
+}
+.main .list .item-github:hover {
+  background-color: #333;
+}
+.main .list .item-github:hover .item-tooltip {
+  background-color: #333;
+}
+.main .list .item-github:hover .item-tooltip::before {
+  background-color: #333;
+}
+.main .list .item-twitter:hover {
+  background-color: #46c1f6;
+}
+.main .list .item-twitter:hover .item-tooltip {
+  background-color: #46c1f6;
+}
+.main .list .item-twitter:hover .item-tooltip::before {
+  background-color: #46c1f6;
+}
+.main .list .item-instagram:hover {
+  background-color: #e1306c;
+}
+.main .list .item-instagram:hover .item-tooltip {
+  background-color: #e1306c;
+}
+.main .list .item-instagram:hover .item-tooltip::before {
+  background-color: #e1306c;
+}
+.main .list .item-youtube:hover {
+  background-color: #de463b;
+}
+.main .list .item-youtube:hover .item-tooltip {
+  background-color: #de463b;
+}
+.main .list .item-youtube:hover .item-tooltip::before {
+  background-color: #de463b;
+}
+
+/*# sourceMappingURL=day27.css.map */

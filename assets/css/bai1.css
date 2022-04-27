@@ -1,0 +1,136 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right, #4daf54, #3d8880);
+  display: flex;
+}
+.main .card {
+  margin: auto;
+  width: 320px;
+  height: 400px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: #272d40;
+  color: #fff;
+}
+.main .card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.6rem;
+}
+.main .card-pic {
+  width: 90%;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.main .card-pic img {
+  width: 100%;
+}
+.main .card-name {
+  font-size: 2.4rem;
+  color: #4daf54;
+  font-weight: 600;
+  text-align: center;
+  transition: 0.5s;
+}
+.main .card-price {
+  font-size: 2.6rem;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.5s;
+  margin-top: 10px;
+}
+.main .card-hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  margin-top: 50px;
+}
+.main .card-hidden__size {
+  display: flex;
+  align-items: center;
+}
+.main .card-hidden__size h3 {
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+.main .card-hidden__size span {
+  font-size: 1.6rem;
+  color: #000;
+  background-color: #dadada;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main .card-hidden__color {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+.main .card-hidden__color h3 {
+  font-size: 1.8rem;
+  margin-right: 10px;
+}
+.main .card-hidden__color span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.main .card-hidden__color-green {
+  background-color: green;
+}
+.main .card-hidden__color-red {
+  background-color: red;
+}
+.main .card-hidden__color-black {
+  background-color: black;
+}
+.main .card-hidden__footer {
+  display: flex;
+  margin-top: 20px;
+}
+.main .card-hidden__footer-btn {
+  background-color: #4daf54;
+  border-radius: 3px;
+  padding: 8px 16px;
+  color: #fff;
+  font-size: 1.4rem;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.main .card-hidden__footer-btn:first-child {
+  margin-right: 10px;
+}
+.main .card-hidden__footer-btn:hover {
+  transform: scale(0.9);
+  cursor: pointer;
+}
+.main .card:hover .card-pic {
+  transform: translateY(-90px) rotate(-20deg);
+}
+.main .card:hover .card-name {
+  transform: translate(-42px, -72px);
+}
+.main .card:hover .card-price {
+  transform: translate(-116px, -72px);
+}
+.main .card:hover .card-hidden {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-70px);
+}
+
+/*# sourceMappingURL=bai1.css.map */

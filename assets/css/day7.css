@@ -1,0 +1,76 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  background-color: #8cc84c;
+  display: flex;
+}
+.main .form {
+  background-color: #fff;
+  margin: auto;
+  border-radius: 5px;
+  max-width: 500px;
+  padding: 20px;
+}
+.main .form-header {
+  margin-top: 8px;
+  margin-bottom: 26px;
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.main .form-body {
+  border-radius: 6px;
+  border: 1px solid #9b9b9b;
+  padding: 16px;
+  overflow: hidden;
+}
+.main .form-body__tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .form-body .tag-item {
+  display: flex;
+  padding: 12px 8px;
+  border-radius: 5px;
+  background-color: #8cc84c;
+  color: #fff;
+  font-size: 1.7rem;
+  line-height: 2.2rem;
+  margin-right: 6px;
+  margin-bottom: 10px;
+}
+.main .form-body .tag-item__name {
+  margin-right: 16px;
+}
+.main .form-body .tag-item__icon {
+  font-size: 2.2rem;
+}
+.main .form-body .tag-item__input {
+  font-size: 2rem;
+  border: none;
+  min-width: 460px;
+  outline: none;
+  padding: 0 14px;
+}
+.main .form-body .tag-item:first-child {
+  margin-left: 14px;
+}
+.main .form .removeall-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #8cc84c;
+  color: #fff;
+  font-size: 1.7rem;
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=day7.css.map */

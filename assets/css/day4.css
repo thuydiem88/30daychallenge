@@ -1,0 +1,116 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #dadada;
+}
+.main .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .list {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.main .list:first-child {
+  margin-bottom: 20px;
+}
+.main .list .item {
+  max-width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
+}
+.main .list .item-img {
+  max-width: 100%;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.main .list .item .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: cover;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.main .list .item .img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+.main .gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+.main .gallery-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.main .gallery .close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+}
+.main .gallery .close-icon:hover {
+  cursor: pointer;
+}
+.main .gallery-body {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.main .gallery-body .gallery-icon {
+  font-size: 5rem;
+  font-weight: 700;
+  color: #dadada;
+}
+.main .gallery-body .gallery-icon:hover {
+  cursor: pointer;
+}
+.main .gallery-body .prev-icon.hide {
+  opacity: 0;
+}
+.main .gallery-body .next-icon.hide {
+  opacity: 0;
+}
+.main .gallery-body__pic {
+  width: 880px;
+  height: 100%;
+}
+.main .gallery-body__pic-img {
+  width: 100%;
+  height: 100%;
+}
+.main .gallery.open {
+  display: block;
+}
+
+/*# sourceMappingURL=day4.css.map */

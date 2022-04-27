@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 7</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day7.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="form">
+            <p class="form-header">
+                Search Tags
+            </p>
+            <div class="form-body">
+                <ul class="form-body__tags">
+                    <!-- <li class="tag-item">
+                        <h3 class="tag-item__name">nodejs</h3>
+                        <i class='tag-item__icon bx bx-x'></i>
+                    </li>
+                    <li class="tag-item">
+                        <h3 class="tag-item__name">reactjs</h3>
+                        <i class='tag-item__icon bx bx-x'></i>
+                    </li> -->
+
+                    <input type="text" class="tag-item__input" placeholder="Type and enter">
+                </ul>
+            </div>
+            <button class="removeall-btn">Remove All</button>
+        </div>
+    </div>
+    <script>
+        const listTag = document.querySelector('.form-body__tags');
+        const input = document.querySelector('.tag-item__input');
+        const removeAll = document.querySelector('.removeall-btn');
+
+        var tags = ['nodejs', 'reactjs'];
+
+        function createTag() {
+            listTag.innerHTML = ''
+            for (var i = 0; i < tags.length; i++) {
+                let tag = tags[i];
+                let litag = `<li class="tag-item">
+                            <h3 class="tag-item__name">${tag}</h3>
+                            <i class='tag-item__icon bx bx-x' onclick='removeTag(this,"${tag}")'></i>
+                        </li>`
+
+                listTag.insertAdjacentHTML('beforeend', litag);
+            }
+            listTag.appendChild(input);
+            input.focus();
+
+            // tags.slice().forEach(function(tag) {
+            //     listTag.innerHTML = `<li class="tag-item">
+            //             <h3 class="tag-item__name">${tag}</h3>
+            //             <i class='tag-item__icon bx bx-x'></i>
+            //             </li>
+            //             `
+
+            // })
+        }
+
+        function addTags(e) {
+            if (e.key == 'Enter') {
+                let tag = e.target.value.trim()
+                if (tag != '' && !tags.includes(tag)) {
+                    tags.push(tag)
+                    createTag()
+                }
+                e.target.value = ''
+            }
+        }
+
+        function removeTag(e, tag) {
+            let index = tags.indexOf(tag);
+            tags.splice(index, 1);
+            e.parentElement.remove();
+            input.focus();
+        }
+        removeAll.addEventListener('click', function() {
+            tags.length = 0;
+            listTag.querySelectorAll('.tag-item').forEach((li) => li.remove());
+            input.focus();
+        })
+        createTag();
+        input.addEventListener('keyup', addTags)
+    </script>
+</body>
+
+</html>

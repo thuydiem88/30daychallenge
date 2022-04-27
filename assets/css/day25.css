@@ -1,0 +1,96 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-image: linear-gradient(to right, #7c1da4, #7e3fd7);
+}
+.main .player {
+  margin: auto;
+  width: 800px;
+  height: 450px;
+  position: relative;
+}
+.main .player:hover .player__controls {
+  transform: unset;
+}
+.main .player__video {
+  width: 100%;
+}
+.main .player__controls {
+  display: flex;
+  background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .player__controls > * {
+  margin: 5px;
+}
+.main .player__controls .toggle {
+  width: 16px;
+}
+.main .player__controls .toggle i {
+  font-size: 2rem;
+}
+.main .player__btn {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.4rem;
+}
+.main .player__btn:hover {
+  cursor: pointer;
+  color: #0075ff;
+}
+.main .player__time {
+  font-size: 1.6rem;
+  color: #fff;
+}
+.main .player__progress {
+  width: 400px;
+  height: 10px;
+  background-color: #fff;
+  position: relative;
+}
+.main .player__progress-filled {
+  width: 200px;
+  height: 10px;
+  background-color: #0075ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.main .player__volume {
+  color: #fff;
+  font-size: 1.6rem;
+}
+.main .player__volume-filled {
+  color: #0075ff;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: pink;
+  display: flex;
+}
+.container video {
+  width: 800px;
+  height: 450px;
+  margin: auto;
+}
+
+/*# sourceMappingURL=day25.css.map */

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 19</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day19.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="tools">
+            <input type="color" class="color">
+            <button class="eraser">
+                <i class="eraser-icon fas fa-eraser"></i>
+            </button>
+            <button class="decrease">-</button>
+            <span class="size">10</span>
+            <button class="increase">+</button>
+            <a download='example.png' class="save">
+                <i class="save-icon fas fa-save"></i>
+            </a>
+            <button class="clear">X</button>
+        </div>
+        <canvas class="canvas"></canvas>
+    </div>
+    <script>
+        const canvas = document.querySelector('.canvas');
+        const colorEl = document.querySelector('.color');
+        const eraserEl = document.querySelector('.eraser');
+        const decreaseBtn = document.querySelector('.decrease');
+        const increaseBtn = document.querySelector('.increase');
+        const clearEl = document.querySelector('.clear');
+        const sizeEl = document.querySelector('.size');
+        const saveEl = document.querySelector('.save');
+
+        const context = canvas.getContext('2d');
+
+        let size = 10;
+        let isPressed = false;
+        colorEl.value = 'black';
+        let color = colorEl.value;
+        let x, y;
+
+        // canvas.addEventListener('mousedown', (e) => {
+        //     isPressed = true;
+
+        //     x = e.offsetX;
+        //     y = e.offsetY;
+        // })
+
+        // document.addEventListener('mouseup', (e) => {
+        //     isPressed = false;
+
+        //     x = undefined;
+        //     y = undefined;
+        // })
+
+        // canvas.addEventListener('mousemove', (e) => {
+        //     if (isPressed) {
+        //         const x2 = e.offsetX;
+        //         const y2 = e.offsetY;
+        //         drawCircle(x2, y2);
+        //         drawLine(x, y, x2, y2);
+        //         x = x2;
+        //         y = y2;
+        //     }
+        // })
+
+        canvas.addEventListener('mousedown', (e) => {
+            isPressed = true
+
+            x = e.offsetX
+            y = e.offsetY
+        })
+
+        document.addEventListener('mouseup', (e) => {
+            isPressed = false
+
+            x = undefined
+            y = undefined
+        })
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isPressed) {
+                const x2 = e.offsetX
+                const y2 = e.offsetY
+
+                drawCircle(x2, y2)
+                drawLine(x, y, x2, y2)
+
+                x = x2
+                y = y2
+            }
+        })
+
+
+        function drawCircle(x, y) {
+            context.beginPath();
+            context.arc(x, y, size, 0, Math.PI * 2);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        function drawLine(x1, y1, x2, y2) {
+            context.beginPath();
+            context.moveTo(x1, y1);
+            context.lineTo(x2, y2);
+            context.strokeStyle = color;
+            context.lineWidth = size * 2;
+            context.stroke();
+        }
+
+        function updateSizeOnScreen() {
+            sizeEl.innerText = size;
+        }
+        increaseBtn.addEventListener('click', function() {
+            size += 5;
+            if (size >= 50) {
+                size = 50;
+            }
+            updateSizeOnScreen();
+        })
+
+        decreaseBtn.addEventListener('click', function() {
+            size -= 5;
+            if (size <= 5) {
+                size = 5;
+            }
+            updateSizeOnScreen();
+        })
+
+        colorEl.addEventListener('change', (e) => {
+            color = e.target.value
+        });
+        clearEl.addEventListener('click', function() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+        })
+        eraserEl.addEventListener('click', function() {
+            color = '#fff';
+        })
+        saveEl.addEventListener('click', (e) => {
+            const imageURI = canvas.toDataURL('image/png');
+            e.currentTarget.href = imageURI;
+        })
+    </script>
+</body>
+
+</html>

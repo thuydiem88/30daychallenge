@@ -1,0 +1,95 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #569377;
+  background-image: linear-gradient(145deg, #569377 50%, #dbede5 50%);
+}
+.main .form {
+  display: flex;
+}
+.main .form-input {
+  width: 310px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding-left: 16px;
+  padding-right: 16px;
+  line-height: 40px;
+  font-size: 1.8rem;
+}
+.main .form-eye {
+  position: relative;
+}
+.main .form-eye::before {
+  font-family: "Font Awesome 6 free";
+  content: "\f070";
+  font-weight: 900;
+  font-size: 1.6rem;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.main .form-eye.show::before {
+  content: "\f06e";
+}
+.main .form-submit {
+  width: 90px;
+  height: 40px;
+  background-color: #48735f;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  line-height: 40px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-left: 6px;
+}
+.main .validator {
+  width: 410px;
+  height: 210px;
+  background-color: #48735f;
+  border-radius: 10px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.main .validator-item {
+  font-size: 1.6rem;
+  color: #fff;
+  line-height: 40px;
+  margin-left: 40px;
+}
+.main .validator-item::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f00d";
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-right: 10px;
+}
+.main .validator-item.valid {
+  color: rgba(255, 255, 255, 0.5);
+}
+.main .validator-item.valid::before {
+  content: "\f00c";
+}
+
+/*# sourceMappingURL=day26.css.map */

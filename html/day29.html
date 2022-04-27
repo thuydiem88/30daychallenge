@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 29</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day29.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+
+            <h2 class="title">Type and Enjoy</h2>
+            <div class="wrapper">
+                <button class="key key-q">
+                <audio src="../assets/audio/Q.mp3" class="audio-q"></audio>
+                <span class="text">Q</span>
+            </button>
+                <button class="key key-w">
+                <audio src="../assets/audio/W.mp3" class="audio-w"></audio>
+                <span class="text">W</span>
+            </button>
+                <button class="key key-e">
+                <audio src="../assets/audio/E.mp3" class="audio-e"></audio>
+                <span class="text">E</span>
+            </button>
+                <button class="key key-r">
+                <audio src="../assets/audio/R.mp3" class="audio-r"></audio>
+                <span class="text">R</span>
+            </button>
+                <button class="key key-t">
+                <audio src="../assets/audio/T.mp3" class="audio-t"></audio>
+                <span class="text">T</span>
+            </button>
+                <button class="key key-y">
+                <audio src="../assets/audio/Y.mp3" class="audio-y"></audio>
+                <span class="text">Y</span>
+            </button>
+                <button class="key key-u">
+                <audio src="../assets/audio/U.mp3" class="audio-u"></audio>
+                <span class="text">U</span>
+            </button>
+                <button class="key key-i">
+                <audio src="../assets/audio/I.mp3" class="audio-i"></audio>
+                <span class="text">I</span>
+            </button>
+                <button class="key key-o">
+                <audio src="../assets/audio/O.mp3" class="audio-o"></audio>
+                <span class="text">O</span>
+            </button>
+                <button class="key key-p">
+                <audio src="../assets/audio/P.mp3" class="audio-p"></audio>
+                <span class="text">P</span>
+            </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const buttons = document.querySelectorAll(".key");
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                const audio = e.target.querySelector('audio');
+                playSound(audio);
+            })
+        })
+
+        function playSound(audio) {
+            const clone = audio.cloneNode();
+            clone.play();
+            setTimeout(() => (clone.volumn = 0.8), 400);
+            setTimeout(() => (clone.volumn = 0.6), 800);
+            setTimeout(() => (clone.volumn = 0.4), 1200);
+            setTimeout(() => (clone.volumn = 0.2), 1600);
+            setTimeout(() => (clone.volumn = 0), 2000);
+
+        }
+        document.addEventListener('keydown', (e) => {
+            const btn = document.querySelector(`.key-${e.key}`);
+            btn && btn.click();
+        })
+    </script>
+</body>
+
+</html>

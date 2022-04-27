@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 24</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day24.css">
+</head>
+
+<body>
+    <div class="main">
+        <!-- <div class="square"></div> -->
+    </div>
+    <script>
+        const main = document.querySelector('.main');
+        const SQUARES = 200;
+
+        for (var i = 0; i < SQUARES; ++i) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            square.addEventListener("mouseover", function() {
+                setColor(square);
+            });
+            square.addEventListener('mouseout', function() {
+                removeColor(square);
+            })
+            main.appendChild(square);
+        }
+
+        function setColor(e) {
+            const color = randomColor();
+            e.style.backgroundColor = color;
+            e.style.boxShadow = `0 0 10px ${color}`;
+
+        }
+
+        function removeColor(e) {
+            e.style.backgroundColor = '#1d1d1d';
+            e.style.boxShadow = `0 0 10px #000`;
+        }
+
+        function randomColor() {
+            let letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)]
+
+            }
+            return color;
+        }
+    </script>
+</body>
+
+</html>

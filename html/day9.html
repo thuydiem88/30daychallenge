@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 9</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day9.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="weather">
+            <input type="text" class="search" placeholder="Search...">
+            <div class="content">
+                <h1 class="name">
+                    <span class="name-city">Seoul</span>
+                    <span>, </span>
+                    <span class="name-country">KR</span>
+                </h1>
+                <h3 class="time">12/16/2021, 9:21PM</h3>
+                <div class="temperature">
+                    <span class="temperature-value">8</span>
+
+                    <span><sup>o</sup>C</span>
+                </div>
+                <h2 class="short-desc">Clouds</h2>
+                <ul class="more-desc">
+                    <li class="desc-item">
+                        <i class="desc-item__icon far fa-eye"></i>
+                        <p class="desc-item__value visibility"></p>
+                    </li>
+                    <li class="desc-item">
+                        <i class="desc-item__icon fas fa-wind"></i>
+                        <p class="desc-item__value wind"></p>
+                    </li>
+                    <li class="desc-item">
+                        <i class="desc-item__icon fas fa-cloud-sun"></i>
+                        <p class="desc-item__value cloud"></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const search = document.querySelector('.search');
+
+        function changeWeatherUI(weather) {
+            const main = document.querySelector('.main');
+            const city = document.querySelector('.name-city');
+            const country = document.querySelector('.name-country');
+            const time = document.querySelector('.time');
+            const temp = document.querySelector('.temperature-value');
+            const shortDesc = document.querySelector('.short-desc');
+            const visibility = document.querySelector('.desc-item__value.visibility');
+            const wind = document.querySelector('.desc-item__value.wind');
+            const cloud = document.querySelector('.desc-item__value.cloud');
+
+            city.innerHTML = weather.name;
+            country.innerHTML = weather.sys.country;
+            time.innerHTML = new Date().toLocaleString();
+            temp.innerHTML = Math.floor(weather.main.temp);
+            shortDesc.innerHTML = weather.weather[0].main;
+
+
+
+            Math.floor(weather.main.temp) >= 18 ? main.id = 'hot' : main.id = 'cold';
+
+            visibility.innerHTML = weather.visibility + ' (m)';
+            wind.innerHTML = weather.wind.speed + ' (m/s)';
+            cloud.innerHTML = weather.clouds.all + ' (%)';
+
+        }
+        search.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                getWeather(event.target.value);
+            }
+        })
+        async function getWeather(search) {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=d78fd1588e1b7c0c2813576ba183a667`
+            const res = await fetch(url);
+            const weather = await res.json();
+            changeWeatherUI(weather);
+        }
+        getWeather('ha noi');
+    </script>
+</body>
+
+</html>

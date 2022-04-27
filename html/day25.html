@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 25</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day25.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="player">
+            <video src="https://storage.googleapis.com/web-dev-assets/video-and-source-tags/chrome.mp4" class="player__video"></video>
+            <div class="player__controls">
+                <button class="player__btn toggle">
+                    <i class="fas fa-play"></i>
+                </button>
+                <span class="player__time"></span>
+                <div class="player__progress">
+                    <div class="player__progress-filled"></div>
+                </div>
+                <button data-skip="-10" class="player__btn">« 10s</button>
+                <button data-skip="10" class="player__btn">10s »</button>
+                <div class="player__volume">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" class="player__volume-filled" min="0" max="1" step="0.05" value="0.5">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
+        </iframe> -->
+        <!-- <iframe src="https://youtube.com/embed/cuEtnrL9-H0" width="420" height="315" controls></iframe> -->
+        <!-- <video src="../assets/video/chls.mp4" width="420" height="315" controls></video> -->
+
+        <video src="https://storage.googleapis.com/web-dev-assets/video-and-source-tags/chrome.mp4" controls></video>
+    </div>
+    <script>
+        const player = document.querySelector('.player');
+        const video = player.querySelector('.player__video');
+        const progress = player.querySelector('.player__progress');
+        const progressBar = player.querySelector('.player__progress-filled');
+
+        const toggle = player.querySelector('.toggle');
+        const skipButtons = player.querySelectorAll('[data-skip]');
+        const volume = player.querySelector('.player__volume-filled');
+        const time = player.querySelector('.player__time');
+
+        function togglePlay() {
+            if (video.paused) {
+                video.play();
+                toggle.innerHTML = '<i class="fas fa-pause"></i>'
+
+            } else {
+                video.pause();
+                toggle.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+
+
+        function handleProgress() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.style.width = `${percent}%`;
+            console.log(`${formatTime(video.currentTime)}/${formatTime(video.duration)}`)
+
+            time.innerHTML = `${formatTime(video.currentTime)}/${formatTime(video.duration)}`;
+        }
+
+        function scrub(e) {
+            const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+            video.currentTime = scrubTime;
+        }
+
+        toggle.addEventListener('click', togglePlay);
+        video.addEventListener('click', togglePlay);
+        video.addEventListener('timeupdate', handleProgress);
+
+        skipButtons.forEach((button) => {
+            button.addEventListener('click', function() {
+                video.currentTime += +this.dataset.skip
+            })
+        })
+
+        volume.addEventListener('change', function() {
+            video.volume = this.value;
+        })
+
+        progress.addEventListener('click', scrub);
+
+        function formatTime(time) {
+            let minutes = Math.floor(time / 60);
+            let seconds = Math.floor(time - minutes * 60);
+
+            let minuteValue, secondValue;
+
+            minuteValue = minutes < 10 ? '0' + minutes : minutes;
+            secondValue = seconds < 10 ? '0' + seconds : seconds;
+
+            let mediaTime = minuteValue + ':' + secondValue;
+            return mediaTime;
+        }
+    </script>
+</body>
+
+</html>

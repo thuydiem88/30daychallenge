@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 23</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day23.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="image">
+            <img src="https://www.nodemy.vn/projects/html-css-js/zoom-image/bike1.jpg" alt="" class="image__img">
+        </div>
+        <div class="image">
+            <img src="https://www.nodemy.vn/projects/html-css-js/zoom-image/bike2.jpg" alt="" class="image__img">
+        </div>
+        <div class="result hide"></div>
+    </div>
+    <script>
+        const main = document.querySelector('.main');
+        const wrapImg = document.querySelectorAll('.image');
+        const result = document.querySelector('.result');
+
+        const size = 3;
+        wrapImg.forEach((item) => {
+            console.log(item)
+            item.addEventListener('mousemove', function(e) {
+                result.classList.remove('hide');
+                const img = item.querySelector('.image__img');
+
+                let x = (e.offsetX / this.offsetWidth) * 100;
+                let y = (e.offsetY / this.offsetHeight) * 100;
+
+                //move result
+                let posX = e.pageX - main.offsetLeft;
+                let posY = e.pageY - main.offsetTop;
+
+                result.style.cssText = `
+                background-image: url(${img.src});
+			    background-size: ${img.width * size}px ${img.height * size}px;
+			    background-position : ${x}% ${y}%;
+                left: ${posX}px;
+                top:${posY}px;
+                `
+            })
+            item.addEventListener('mouseleave', function(e) {
+                result.style = ``;
+                result.classList.add('hide');
+            })
+        })
+    </script>
+</body>
+
+</html>

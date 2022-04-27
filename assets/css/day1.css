@@ -1,0 +1,170 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-image: linear-gradient(to right, #4daf54, #3d8880);
+}
+.main .card {
+  width: 320px;
+  height: 400px;
+  background: #272d40;
+  border-radius: 15px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 16px 20px;
+}
+.main .card__header {
+  display: flex;
+  justify-content: space-between;
+}
+.main .card__header-icon {
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+.main .card__pic {
+  width: 90%;
+  margin-bottom: 10px;
+  transition: 0.5s;
+}
+.main .card__pic-img {
+  width: 100%;
+  object-fit: cover;
+}
+.main .card__title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #4daf54;
+  margin-bottom: 10px;
+  transition: all 0.5s;
+  text-align: center;
+}
+.main .card__price {
+  color: #ffffff;
+  font-size: 2.6rem;
+  font-weight: 600;
+  transition: all 0.5s;
+  text-align: center;
+}
+.main .card__size {
+  display: flex;
+  align-items: center;
+  margin-top: 130px;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+.main .card__size-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.main .card__size span {
+  color: #272d40;
+  background: #dadada;
+  font-size: 1.4rem;
+  margin: 0 5px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.main .card__size span:hover {
+  cursor: pointer;
+}
+.main .card__color {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+.main .card__color-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  margin-right: 10px;
+}
+.main .card__color-green {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+}
+.main .card__color-green:hover {
+  cursor: pointer;
+}
+.main .card__color-red {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  margin-left: 10px;
+}
+.main .card__color-red:hover {
+  cursor: pointer;
+}
+.main .card__color-black {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: black;
+  margin-left: 10px;
+}
+.main .card__color-black:hover {
+  cursor: pointer;
+}
+.main .card__action {
+  display: flex;
+  visibility: hidden;
+  transition: 0.5s;
+  transition-delay: 0.2s;
+  opacity: 0;
+}
+.main .card__action-btn {
+  font-size: 1.3rem;
+  color: #ffffff;
+  background-color: #4daf54;
+  border-radius: 5px;
+  padding: 10px 16px;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.main .card__action-btn:hover {
+  cursor: pointer;
+  transform: scale(0.9);
+}
+.main .card__action-btn:first-child {
+  margin-right: 10px;
+}
+.main .card:hover .card__pic {
+  transform: translateY(-90px) rotate(-20deg);
+}
+.main .card:hover .card__title {
+  transform: translate(-42px, -72px);
+}
+.main .card:hover .card__price {
+  transform: translate(-116px, -72px);
+}
+.main .card:hover .card__size {
+  margin-top: -20px;
+  visibility: visible;
+  opacity: 1;
+}
+.main .card:hover .card__action, .main .card:hover .card__color {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*# sourceMappingURL=day1.css.map */

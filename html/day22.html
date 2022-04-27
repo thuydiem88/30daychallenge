@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 22</title>
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="../assets/css/grid.css">
+    <link rel="stylesheet" href="../assets/css/day22.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="food-menu">
+                <button class="food-btn active" type-food='all'>All food</button>
+                <button class="food-btn" type-food='salad'>Salad</button>
+                <button class="food-btn" type-food='meat'>Meat</button>
+                <button class="food-btn" type-food='drinks'>Drinks</button>
+                <button class="food-btn" type-food='desert'>Desert</button>
+            </div>
+            <div class="food-list">
+                <div class="food-item" type-food='meat'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/meat1.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='meat'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/meat2.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='drinks'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/drinks1.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='drinks'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/drinks2.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='drinks'>
+                    <img src="https://www.nodemy.vn/projects/html-css-js/filter-elements/drinks3.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='salad'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/salad1.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='salad'>
+                    <img src="	https://www.nodemy.vn/projects/html-css-js/filter-elements/salad2.jpg" alt="" class="food-item__img">
+                </div>
+                <div class="food-item" type-food='desert'>
+                    <img src="https://www.nodemy.vn/projects/html-css-js/filter-elements/dessert1.jpg" alt="" class="food-item__img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const foodBtns = document.querySelectorAll('.food-btn');
+        const foodList = document.querySelectorAll('.food-item');
+
+        foodBtns.forEach((btn) => {
+            btn.addEventListener('click', function(e) {
+                const type = e.target.getAttribute('type-food');
+                document.querySelector('.active').classList.remove('active');
+                e.target.classList.add('active');
+                console.log(typeof type);
+                //filter items
+                foodList.forEach((item) => {
+                    if ((type == 'all') || (item.getAttribute('type-food') == type)) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

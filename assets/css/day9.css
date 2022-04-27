@@ -1,0 +1,100 @@
+@charset "UTF-8";
+html {
+  /* khi muốn 16px thì = 1.6rem */
+  font-size: 62.5%;
+  font-family: sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.main {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.main .weather {
+  width: 350px;
+  height: 100%;
+  margin: auto;
+  padding: 16px 22px;
+  text-align: center;
+  background: no-repeat center/cover;
+  transition: 0.4s;
+}
+.main .weather .search {
+  width: 100%;
+  height: 42px;
+  border-radius: 0 15px 0 15px;
+  border: none;
+  padding: 0 24px;
+  font-size: 1.6rem;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0px 4px 12px -4px #000000;
+  outline: none;
+  transition: 0.4s;
+}
+.main .weather .search:focus {
+  border-radius: 15px 0 15px 0;
+  background-color: #fff;
+}
+.main .weather .content {
+  color: #fff;
+}
+.main .weather .content .name {
+  font-size: 3.5rem;
+  font-weight: 600;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 45px;
+}
+.main .weather .content .time {
+  margin-top: 12px;
+  font-size: 1.5rem;
+}
+.main .weather .content .temperature {
+  font-size: 6.5rem;
+  font-weight: 800;
+  text-shadow: 4px 4px rgba(0, 0, 0, 0.6);
+  padding: 32px 20px;
+  border-radius: 15px;
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 26px 0 30px;
+  box-shadow: 2px 2px 0px 2px rgba(0, 0, 0, 0.5);
+}
+.main .weather .content .temperature sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+.main .weather .content .short-desc {
+  font-size: 4rem;
+  font-weight: 600;
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 40px;
+}
+.main .weather .content .more-desc {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.8rem;
+}
+.main .weather .content .more-desc .desc-item__icon {
+  margin-bottom: 12px;
+}
+
+.main#cold {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), black), url("https://www.nodemy.vn/projects/html-css-js/weather-app/cold.png") no-repeat center/cover;
+  transition: 0.4s;
+}
+.main#cold .weather {
+  background-image: url("	https://www.nodemy.vn/projects/html-css-js/weather-app/cold.png");
+}
+
+.main#hot {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), black), url("https://www.nodemy.vn/projects/html-css-js/weather-app/hot.png") no-repeat center/cover;
+  transition: 0.4s;
+}
+.main#hot .weather {
+  background-image: url("https://www.nodemy.vn/projects/html-css-js/weather-app/hot.png");
+}
+
+/*# sourceMappingURL=day9.css.map */

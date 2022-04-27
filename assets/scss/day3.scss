@@ -1,0 +1,125 @@
+html {
+    /* khi muốn 16px thì = 1.6rem */
+    font-size: 62.5%;
+    // line-height: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+@keyframes showModal {
+    from {
+        opacity: 0;
+        top: 0;
+    }
+    to {
+        opacity: 1;
+        top: 50%;
+    }
+}
+
+.main {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    // display: flex;
+    background-image: linear-gradient( 45deg, #4158d0, #c851bf, #ffcb71);
+    .open-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 65px;
+        width: 190px;
+        border-radius: 4px;
+        background-color: #fff;
+        color: #000;
+        font-size: 2rem;
+        border: none;
+        &:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+    .modal {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+        &-overlay {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        &-body {
+            overflow: hidden;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            width: 450px;
+            height: 200px;
+            animation: showModal linear .3s;
+            transition: .3s;
+            .form {
+                width: 100%;
+                height: 100%;
+                background-color: #fff;
+                border-radius: 4px;
+                // padding: 16px;
+                &__header {
+                    width: 100%;
+                    height: 50px;
+                    background-color: #e26e70;
+                    padding: 16px;
+                    display: flex;
+                    justify-content: space-between;
+                    color: #fff;
+                    &-text {
+                        font-size: 1.7rem;
+                    }
+                    &-close {
+                        font-size: 2.2rem;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+                &__body {
+                    padding: 16px;
+                    &-heading {
+                        font-size: 2.4rem;
+                        color: #e26e70;
+                        font-weight: 600;
+                        margin-bottom: 1.4rem;
+                    }
+                    &-desc {
+                        font-size: 1.6rem;
+                        color: #202020;
+                    }
+                    &-close {
+                        width: 75px;
+                        height: 35px;
+                        position: absolute;
+                        right: 16px;
+                        bottom: 16px;
+                        border-radius: 5px;
+                        color: #fff;
+                        background-color: #e26e70;
+                        border: none;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .modal.open {
+        display: block;
+    }
+}
